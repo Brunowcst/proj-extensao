@@ -1,45 +1,49 @@
+import { FormField } from '@/types/FormField';
 import clsx from 'clsx';
-import {
-  DetailedHTMLProps,
-  PropsWithChildren,
-  SelectHTMLAttributes,
-} from 'react';
+import { useId } from 'react';
+import ReactSelect from 'react-select';
 
-interface IProps
-  extends PropsWithChildren<
-    DetailedHTMLProps<
-      SelectHTMLAttributes<HTMLSelectElement>,
-      HTMLSelectElement
-    >
-  > {
-  label: string;
+interface IProps {
+  field: FormField;
+  errors: any;
+  touched: any;
+  setFieldValue: any;
 }
 
 export default function Select({
-  className,
-  children,
-  id,
-  label,
-  ...rest
+  field,
+  errors,
+  touched,
+  setFieldValue,
 }: IProps) {
   return (
-    <>
-      <label
-        htmlFor={id}
-        className='border-0 overflow-hidden absolute w-1 h-1 m-[-1px] p-0'
-      >
-        {label}
-      </label>
-      <select
-        id={id}
-        {...rest}
-        className={clsx(
-          'border mb-4 border-blackish rounded-lg p-3 w-full focus:outline-primary caret-primary accent-primary',
-          className
-        )}
-      >
-        {children}
-      </select>
-    </>
+    <ReactSelect
+      instanceId={useId()}
+      options={field.options}
+      placeholder={field.placeholder}
+      unstyled={true}
+      name={field.name}
+      onChange={(newValue) => {
+        setFieldValue(field.name, (newValue as any).value);
+      }}
+      classNames={{
+        container: (props) =>
+          clsx(props.isFocused && 'outline outline-primary rounded-lg'),
+        control: () =>
+          clsx(
+            'border border-blackish rounded-lg p-3 w-full',
+            errors[field.name] && touched[field.name] && 'border-red-600'
+          ),
+        input: () => 'caret-primary',
+        menuList: () => 'bg-white border-blackish border rounded mt-1',
+        option: (props) =>
+          clsx(
+            'p-2 disabled:text-red',
+            props.isSelected && 'bg-primary',
+            props.isDisabled && 'bg-gray-300 text-gray-600',
+            props.isFocused && !props.isDisabled && 'bg-primary brightness-110'
+          ),
+      }}
+    />
   );
 }
