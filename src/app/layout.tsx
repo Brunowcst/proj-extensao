@@ -19,7 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pt-BR'>
-      <body className={ubuntu.className + ' text-[#2F2F2F]'}>{children}</body>
+      <body
+        className={
+          ubuntu.className +
+          ' text-[#2F2F2F] selection:bg-primary selection:text-blackish'
+        }
+      >
+        {children}
+      </body>
     </html>
   );
 }
