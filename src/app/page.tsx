@@ -1,13 +1,11 @@
+import Header from '@/components/Header';
 import Image from 'next/image';
 
 export default function Home() {
   return (
     <>
-      <header>
-        <h1>Aqui você é única!</h1>
-        <p>Insira os dados e reserve sua data agora!</p>
-      </header>
-      <main>
+      <Header />
+      <main className='container mx-auto px-10'>
         <Image src='/img/makeup.png' alt='' width='517' height='371' />
         <form action=''>
           <div>
