@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <>
+    <div className='flex flex-grow flex-col justify-center'>
       <Header />
       <main className='container mx-auto px-8 flex flex-col md:flex-row gap-16 justify-center'>
         <Image
@@ -36,8 +36,9 @@ export default function Home() {
             id='occasion'
             required
             label='Qual sua ocasião?'
+            defaultValue=''
           >
-            <option value='' selected disabled>
+            <option value='' disabled>
               Qual sua ocasião?
             </option>
             <option value='aniversario'>Aniversário</option>
@@ -63,21 +64,6 @@ export default function Home() {
           </div>
         </form>
       </main>
-      <footer>
-        <div>
-          <h4>Contato</h4>
-          <a href='mailto:suporte@atilavinicius.com'>
-            suporte@atilavinicius.com
-          </a>
-        </div>
-        <div>
-          <a href='#'>Termos de uso</a>
-          <a href='#'>Políticas de privacidade</a>
-        </div>
-        <div>
-          <h5>Átila Vinicius &copy; copyright {new Date().getFullYear()}</h5>
-        </div>
-      </footer>
-    </>
+    </div>
   );
 }

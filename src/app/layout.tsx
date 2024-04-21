@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
 import { Ubuntu } from 'next/font/google';
 import './globals.css';
@@ -22,10 +23,11 @@ export default function RootLayout({
       <body
         className={
           ubuntu.className +
-          ' text-[#2F2F2F] selection:bg-primary selection:text-blackish'
+          ' text-[#2F2F2F] selection:bg-primary selection:text-blackish flex flex-col min-h-dvh'
         }
       >
-        {children}
+        <div className='flex-grow flex flex-col'>{children}</div>
+        <Footer />
       </body>
     </html>
   );
