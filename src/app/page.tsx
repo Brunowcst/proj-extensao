@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import Input from '@/components/Input';
 import Image from 'next/image';
 
 export default function Home() {
@@ -10,11 +11,11 @@ export default function Home() {
         <form action=''>
           <div>
             <label htmlFor='name'>Nome:</label>
-            <input id='name' name='name' type='text' required />
+            <Input id='name' name='name' type='text' required />
           </div>
           <div>
             <label htmlFor='phone'>Telefone (WhatsApp):</label>
-            <input id='phone' type='tel' name='phone' maxLength={15} required />
+            <Input id='phone' type='tel' name='phone' maxLength={15} required />
           </div>
           <div>
             <label htmlFor='occasion'>Ocasião</label>
@@ -29,7 +30,7 @@ export default function Home() {
           </div>
           <div>
             <label htmlFor='date'>Data desejada para o atendimento</label>
-            <input
+            <Input
               id='date'
               type='date'
               required
