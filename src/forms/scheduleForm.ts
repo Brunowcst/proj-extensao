@@ -23,14 +23,8 @@ export const scheduleForm = {
     {
       name: 'occasion',
       as: 'select',
+      placeholder: 'Qual sua ocasião?',
       options: [
-        {
-          label: 'Qual sua ocasião?',
-          value: '',
-          props: {
-            disabled: true,
-          },
-        },
         {
           label: 'Aniversário',
           value: 'aniversario',
