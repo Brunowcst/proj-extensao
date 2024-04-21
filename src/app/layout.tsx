@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pt-BR'>
-      <body className={ubuntu.className}>{children}</body>
+      <body className={ubuntu.className + ' text-[#2F2F2F]'}>{children}</body>
     </html>
   );
 }
