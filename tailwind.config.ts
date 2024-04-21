@@ -15,6 +15,10 @@ const config: Config = {
       borderRadius: {
         '4xl': '32px',
       },
+      colors: {
+        blackish: '#0f0f0f',
+        primary: '#98d183',
+      },
     },
   },
   plugins: [],
