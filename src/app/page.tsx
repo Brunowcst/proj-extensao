@@ -1,7 +1,6 @@
 import Header from '@/components/Header';
-import InputField from '@/components/InputField';
-import Select from '@/components/Select';
 import Image from 'next/image';
+import ScheduleForm from '@/components/ScheduleForm';
 
 export default function Home() {
   return (
@@ -15,54 +14,7 @@ export default function Home() {
           height='371'
           className='hidden md:block rounded-4xl object-cover'
         />
-        <form action='' className='mt-3 md:max-w-[50%]'>
-          <InputField
-            placeholder='Nome e sobrenome'
-            id='name'
-            name='name'
-            type='text'
-            required
-          />
-          <InputField
-            placeholder='Telefone (WhatsApp)'
-            id='phone'
-            name='phone'
-            type='tel'
-            required
-            maxLength={15}
-          />
-          <Select
-            name='occasion'
-            id='occasion'
-            required
-            label='Qual sua ocasião?'
-            defaultValue=''
-          >
-            <option value='' disabled>
-              Qual sua ocasião?
-            </option>
-            <option value='aniversario'>Aniversário</option>
-            <option value='batizado'>Batizado</option>
-            <option value='casamento'>Casamento</option>
-          </Select>
-          <InputField
-            placeholder='Data desejada para o atendimento'
-            id='date'
-            type='date'
-            required
-            min={new Date().toISOString().substring(0, 10)}
-          />
-          <div>
-            <button type='submit'>
-              <Image src='/icons/star.svg' alt='' width='10' height='10' />
-              <span>Agendar agora</span>
-            </button>
-            <a href='#'>
-              <Image src='/icons/star.svg' alt='' width='10' height='10' />
-              <span>Já fiz meu agendamento</span>
-            </a>
-          </div>
-        </form>
+        <ScheduleForm />
       </main>
     </div>
   );
