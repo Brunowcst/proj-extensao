@@ -14,7 +14,7 @@ export default function InputField({
   ...rest
 }: IProps) {
   return (
-    <div className={clsx(className, 'mb-4 max-w-full w-[512px]')}>
+    <div className={clsx(className, 'mb-4 max-w-full md:w-[512px]')}>
       <label
         htmlFor={id}
         className='border-0 overflow-hidden absolute w-1 h-1 m-[-1px] p-0'
