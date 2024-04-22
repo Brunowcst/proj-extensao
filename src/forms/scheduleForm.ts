@@ -1,4 +1,5 @@
 import { FormField } from '@/types/FormField';
+import { maskPhone } from '@/utils/masks/phone';
 import { scheduleFormSchema } from '@/validation/schemas/scheduleFormSchema';
 import { toZonedTime } from 'date-fns-tz';
 
@@ -20,6 +21,7 @@ export const scheduleForm = {
       name: 'phone',
       type: 'tel',
       placeholder: 'Telefone (WhatsApp)',
+      mask: maskPhone,
     },
     {
       name: 'occasion',
