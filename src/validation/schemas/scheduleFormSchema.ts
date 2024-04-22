@@ -1,3 +1,4 @@
+import { toZonedTime } from 'date-fns-tz';
 import * as Yup from 'yup';
 import { validatePhone } from '../validators/phoneValidator';
 
@@ -19,5 +20,8 @@ export const scheduleFormSchema = Yup.object().shape({
   occasion: Yup.string().required('Campo obrigatório'),
   date: Yup.date()
     .required('Campo obrigatório')
-    .min(new Date(), 'Selecione uma data válida'),
+    .min(
+      toZonedTime(new Date(), 'America/Fortaleza'),
+      'Selecione uma data válida'
+    ),
 });
