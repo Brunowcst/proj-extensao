@@ -5,9 +5,14 @@ import StarATag from '@/components/StarATag';
 import { scheduleForm } from '@/forms/scheduleForm';
 import FormikForm from './FormikForm';
 
-export default function ScheduleForm() {
+interface IProps {
+  formClassName?: string;
+}
+
+export default function ScheduleForm({ formClassName }: IProps) {
   return (
     <FormikForm
+      formClassName={formClassName}
       fields={scheduleForm.fields}
       initialValues={scheduleForm.initialValues}
       onSubmit={(values) => console.log(values)}
