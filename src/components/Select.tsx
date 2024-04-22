@@ -27,6 +27,7 @@ export default function Select({
         setFieldValue(field.name, (newValue as any).value);
       }}
       classNames={{
+        placeholder: () => 'opacity-50',
         container: (props) =>
           clsx(props.isFocused && 'outline outline-primary rounded-lg'),
         control: () =>
