@@ -9,6 +9,7 @@ export default function Home() {
       <Header />
       <main className='container mx-auto px-8 flex flex-col md:flex-row gap-16 justify-center'>
         <Image
+          priority
           src={makeupImage}
           alt=''
           width='600'

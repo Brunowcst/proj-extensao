@@ -5,6 +5,7 @@ export default function Header() {
   return (
     <header className='text-center md:px-16 md:py-10'>
       <Image
+        priority
         src={makeupImage}
         width={600}
         height={400}
