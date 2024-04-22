@@ -1,6 +1,7 @@
+import makeupImage from '@/assets/img/makeup.webp';
 import Header from '@/components/Header';
-import Image from 'next/image';
 import ScheduleForm from '@/components/ScheduleForm';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -8,11 +9,11 @@ export default function Home() {
       <Header />
       <main className='container mx-auto px-8 flex flex-col md:flex-row gap-16 justify-center'>
         <Image
-          src='/img/makeup.png'
+          src={makeupImage}
           alt=''
-          width='517'
-          height='371'
-          className='hidden md:block rounded-4xl object-cover'
+          width='600'
+          height='400'
+          className='hidden md:block rounded-4xl object-cover max-w-[50%] brightness-75'
         />
         <ScheduleForm />
       </main>
