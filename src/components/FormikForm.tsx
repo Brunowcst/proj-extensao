@@ -25,6 +25,7 @@ function generateInput(field: FormField) {
       name={field.name}
       placeholder={field.placeholder}
       type={field.type}
+      mask={field.mask}
       {...field.props}
     />
   );

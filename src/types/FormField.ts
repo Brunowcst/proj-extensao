@@ -6,5 +6,6 @@ export type FormField = {
   type?: string;
   as?: string;
   options?: OptionProps[];
+  mask?: (input: any) => any;
   props?: any;
 };
