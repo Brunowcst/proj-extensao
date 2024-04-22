@@ -6,5 +6,5 @@ export type FormField = {
   type?: string;
   as?: string;
   options?: OptionProps[];
-  props?: object;
+  props?: any;
 };
