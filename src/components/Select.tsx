@@ -1,21 +1,16 @@
 import { FormField } from '@/types/FormField';
-import clsx from 'clsx';
+import clsx from 'clsx/lite';
+import { useField } from 'formik';
 import { useId } from 'react';
 import ReactSelect from 'react-select';
 
 interface IProps {
   field: FormField;
-  errors: any;
-  touched: any;
-  setFieldValue: any;
 }
 
-export default function Select({
-  field,
-  errors,
-  touched,
-  setFieldValue,
-}: IProps) {
+export default function Select({ field }: IProps) {
+  const [_, meta, helpers] = useField(field.name);
+
   return (
     <ReactSelect
       instanceId={useId()}
@@ -23,9 +18,8 @@ export default function Select({
       placeholder={field.placeholder}
       unstyled={true}
       name={field.name}
-      onChange={(newValue) => {
-        setFieldValue(field.name, (newValue as any).value);
-      }}
+      onChange={(newOption) => helpers.setValue((newOption as any).value)}
+      onMenuClose={() => helpers.setTouched(true)}
       classNames={{
         placeholder: () => 'opacity-50',
         container: (props) =>
@@ -33,7 +27,7 @@ export default function Select({
         control: () =>
           clsx(
             'border border-blackish rounded-lg p-3 w-full',
-            errors[field.name] && touched[field.name] && 'border-red-600'
+            meta.error && meta.touched && 'border-red-600'
           ),
         input: () => 'caret-primary',
         menuList: () => 'bg-white border-blackish border rounded mt-1',

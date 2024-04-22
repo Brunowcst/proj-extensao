@@ -6,6 +6,7 @@ import FormikField from '@/components/FormikField';
 import Select from '@/components/Select';
 import { FormField } from '@/types/FormField';
 import { Form, Formik } from 'formik';
+import DateInput from './DateInput';
 
 interface IProps {
   initialValues: Record<string, any>;
@@ -16,30 +17,15 @@ interface IProps {
   children?: any;
 }
 
-function generateInput(field: FormField, errors: any, touched: any) {
+function generateInput(field: FormField) {
+  if (field.as && field.as == 'select') return <Select field={field} />;
+  if (field.type == 'date') return <DateInput field={field} />;
   return (
     <FormikField
       name={field.name}
       placeholder={field.placeholder}
       type={field.type}
-      className={errors[field.name] && touched[field.name] && 'border-red-600'}
       {...field.props}
-    />
-  );
-}
-
-function generateSelect(
-  field: FormField,
-  errors: any,
-  touched: any,
-  setFieldValue: any
-) {
-  return (
-    <Select
-      errors={errors}
-      field={field}
-      touched={touched}
-      setFieldValue={setFieldValue}
     />
   );
 }
@@ -58,20 +44,16 @@ export default function FormikForm({
       onSubmit={onSubmit}
       validationSchema={validationSchema}
     >
-      {({ errors, touched, setFieldValue }) => (
-        <Form className={formClassName}>
-          {fields.map((field, i) => (
-            <FieldWrapper key={i}>
-              {field.as && field.as == 'select'
-                ? generateSelect(field, errors, touched, setFieldValue)
-                : generateInput(field, errors, touched)}
-              <FormikError name={field.name} />
-            </FieldWrapper>
-          ))}
+      <Form className={formClassName}>
+        {fields.map((field, i) => (
+          <FieldWrapper key={i}>
+            {generateInput(field)}
+            <FormikError name={field.name} />
+          </FieldWrapper>
+        ))}
 
-          {children}
-        </Form>
-      )}
+        {children}
+      </Form>
     </Formik>
   );
 }
