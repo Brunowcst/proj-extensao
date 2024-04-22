@@ -9,7 +9,7 @@ export function validatePhone(phoneInput: string): string {
   const phone = phoneInput.replaceAll(/\D/g, '');
 
   if (phone.length <= 10 || phone.length > 11) {
-    return 'Telefone inválido';
+    return 'O telefone deve ter 11 digitos';
   }
 
   if (!DDDs.includes(parseInt(phone.substring(0, 2)))) {
@@ -17,7 +17,7 @@ export function validatePhone(phoneInput: string): string {
   }
 
   if (phone.length === 2 + 9 && phone[2] != '9') {
-    return 'Número de celular inválido';
+    return 'Telefone inválido';
   }
 
   return '';
