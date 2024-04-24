@@ -1,5 +1,5 @@
 import starIcon from '@/assets/icons/star.svg';
-import clsx from 'clsx';
+import clsx from 'clsx/lite';
 import Image from 'next/image';
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
