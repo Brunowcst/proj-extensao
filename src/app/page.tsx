@@ -5,11 +5,8 @@ import { doc, setDoc, addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 
 export default function Home() {
-  const [data, setData] = useState("")
-
-  console.log(db);
+  const [data, setData] = useState("")  
   
-
   async function name() {
     await addDoc(collection(db, "proj-exten"), {
       name: "Teste",
