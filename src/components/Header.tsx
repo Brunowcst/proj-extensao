@@ -12,13 +12,14 @@ export default function Header() {
         alt=''
         className='md:hidden w-full rounded-b-4xl brightness-50'
       />
-      <div className='px-2 py-5'>
+      <div className='px-2 py-5 items-center'>
         <h1 className='text-subheading md:text-heading font-bold'>
-          Aqui você é única!
+          Fique por dentro
         </h1>
-        <p className='text-lg md:text-subheading'>
-          Insira os dados e reserve sua data agora!
+        <p className='text-lg md:text-subheading w-4/5 md:w-full mx-auto'>
+          Saiba todas as novidades e receba ofertas especiais.
         </p>
+        <p className='text-lg md:text-subheading'>Inscreva-se abaixo:</p>
       </div>
     </header>
   );
