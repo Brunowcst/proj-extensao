@@ -9,7 +9,7 @@ const ubuntu = Ubuntu({
 });
 
 export const metadata: Metadata = {
-  title: 'Átila Vinicius - Agendamento',
+  title: 'Átila Vinicius - Fique por dentro',
   description: 'Agende seu atendimento de maquiagem. Aqui você é única!',
 };
 
