@@ -1,8 +1,7 @@
 'use client';
 
 import Button from '@/components/Button';
-import StarATag from '@/components/StarATag';
-import { scheduleForm } from '@/forms/scheduleForm';
+import { leadCaptureForm } from '@/forms/leadCaptureForm';
 import { Form, Formik } from 'formik';
 import FormikFieldRenderer from './FormikFieldRenderer';
 
@@ -10,31 +9,28 @@ interface IProps {
   formClassName?: string;
 }
 
-export default function ScheduleForm({ formClassName }: IProps) {
+export default function LeadCaptureForm({ formClassName }: IProps) {
   return (
     <Formik
-      initialValues={scheduleForm.initialValues}
+      initialValues={leadCaptureForm.initialValues}
       onSubmit={(values) => console.log(values)}
-      validationSchema={scheduleForm.validationSchema}
+      validationSchema={leadCaptureForm.validationSchema}
     >
       {({ dirty, isValid }) => {
         return (
           <Form className={formClassName}>
-            {scheduleForm.fields.map((field, i) => (
+            {leadCaptureForm.fields.map((field, i) => (
               <FormikFieldRenderer field={field} key={i} />
             ))}
 
-            <div className='flex flex-col md:flex-row justify-center items-center gap-3 md:gap-6 mt-6'>
+            <div className='flex justify-center my-6 md:mb-4'>
               <Button
                 type='submit'
                 className='px-7 md:px-5 md:text-sm lg:text-base'
                 disabled={!isValid || !dirty}
               >
-                Agendar agora
+                Receber novidades
               </Button>
-              <StarATag href='#' className='text-xs md:text-sm lg:text-base'>
-                Já fiz meu agendamento
-              </StarATag>
             </div>
           </Form>
         );

@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import clsx from 'clsx/lite';
 import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 import starIcon from '@/assets/icons/star.svg';
 import Image from 'next/image';

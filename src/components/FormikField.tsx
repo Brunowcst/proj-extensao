@@ -8,8 +8,8 @@ export default function FormikField({ className, mask, ...props }: IProps) {
     <Field name={props.name} {...props}>
       {({ field, form, meta }: any) => (
         <input
+          {...props}
           {...field}
-          placeholder={props.placeholder}
           className={clsx(
             'border border-blackish rounded-lg p-3 w-full focus:outline-primary caret-primary',
             meta.error && meta.touched && 'border-red-600',

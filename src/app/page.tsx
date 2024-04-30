@@ -1,6 +1,6 @@
 import makeupImage from '@/assets/img/makeup.webp';
 import Header from '@/components/Header';
-import ScheduleForm from '@/components/ScheduleForm';
+import LeadCaptureForm from '@/components/LeadCaptureForm';
 import Image from 'next/image';
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
           height='400'
           className='hidden md:block rounded-4xl object-cover max-w-[50%] brightness-75'
         />
-        <ScheduleForm formClassName='flex flex-col justify-center md:w-[512px]' />
+        <LeadCaptureForm formClassName='flex flex-col justify-center md:w-[512px]' />
       </main>
     </div>
   );
