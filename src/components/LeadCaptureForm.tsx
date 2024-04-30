@@ -1,19 +1,29 @@
-'use client';
-
 import Button from '@/components/Button';
 import { leadCaptureForm } from '@/forms/leadCaptureForm';
 import { Form, Formik } from 'formik';
 import FormikFieldRenderer from './FormikFieldRenderer';
+import { db } from "../../firebase/firebase";
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 
 interface IProps {
   formClassName?: string;
 }
 
 export default function LeadCaptureForm({ formClassName }: IProps) {
+  
+  async function sendDataToFirebase(name: String, phone: String, email:String) {
+    await setDoc(doc(db, "proj-exten", `${name}`), {
+      name: name,
+      phone: phone,
+      email: email, 
+      data: serverTimestamp()
+    });
+  }  
+
   return (
     <Formik
       initialValues={leadCaptureForm.initialValues}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={(values) => sendDataToFirebase(values.name, values.phone, values.email)}
       validationSchema={leadCaptureForm.validationSchema}
     >
       {({ dirty, isValid }) => {
