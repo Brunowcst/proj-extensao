@@ -27,7 +27,7 @@ export default function SuccessPage() {
                     <div className="flex justify-center">
                         <Link href="https://www.instagram.com/atilaviniciuss/" passHref>
                             <Button type='button' className='px-7 md:px-5 md:text-sm lg:text-base' variant='link' rel="noopener">
-                                Agendar agora
+                                Participar da comunidade
                             </Button>
                         </Link>
                     </div>
