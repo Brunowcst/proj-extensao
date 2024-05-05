@@ -1,10 +1,12 @@
-import Footer from '@/components/Footer';
-import '../app/globals.css';
-import Image from 'next/image';
 import Button from '@/components/Button';
+import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
-import chat_svg from '../../public/undraw_manage_chat.svg';
+import '../globals.css';
 
+export const metadata: Metadata = {
+    title: "Átila Vinícius - Comunidade"
+}
 
 export default function SuccessPage() {
     return (
@@ -18,7 +20,7 @@ export default function SuccessPage() {
                             alt=''
                             width='440'
                             height='440'
-                            className='rounded-4xl object-cover'
+                            className='rounded-4xl object-cover w-full md:w-1/4'
                         />
                     </div>
                     <p className='pt-8 pb-16 text-center text-xl md:text-4x1 font-semibold'>Ah, se quiser ficar ainda mais perto de mim, participe da minha comunidade do zap 💚</p>
@@ -31,7 +33,6 @@ export default function SuccessPage() {
                     </div>
                 </div>
             </main>
-            <Footer />
         </div>
     )
 }
