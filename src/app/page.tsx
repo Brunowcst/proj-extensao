@@ -1,5 +1,4 @@
 'use client'
-import Image from "next/image";
 import { db } from "../../firebase/firebase";
 import { doc, setDoc, addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
