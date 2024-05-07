@@ -1,22 +1,11 @@
 'use client'
-import { db } from "../../firebase/firebase";
-import { doc, setDoc, addDoc, collection } from "firebase/firestore";
-import { useState } from "react";
+import Image from "next/image";
 import makeupImage from '@/assets/img/makeup.webp';
 import Header from '@/components/Header';
 import LeadCaptureForm from '@/components/LeadCaptureForm';
-import Image from 'next/image';
 
 export default function Home() {
-    const [data, setData] = useState("")  
-  
-    async function name() {
-      await addDoc(collection(db, "proj-exten"), {
-        name: "Teste",
-        phone: "(84) 99999-9999",
-        email: "teste123@gmail.com"
-      });
-    }  
+
   return (
     <div className='flex flex-grow flex-col justify-center md:mb-10'>
       <Header />
