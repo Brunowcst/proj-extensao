@@ -3,21 +3,27 @@ import { leadCaptureForm } from '@/forms/leadCaptureForm';
 import { Form, Formik } from 'formik';
 import FormikFieldRenderer from './FormikFieldRenderer';
 import { db } from "../../firebase/firebase";
-import { setDoc, doc, serverTimestamp } from "firebase/firestore";
+import { addDoc, doc, serverTimestamp, collection } from "firebase/firestore";
+import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+
 
 interface IProps {
   formClassName?: string;
 }
 
 export default function LeadCaptureForm({ formClassName }: IProps) {
+
+  const router = useRouter();
   
   async function sendDataToFirebase(name: String, phone: String, email:String) {
-    await setDoc(doc(db, "proj-exten", `${name}`), {
-      name: name,
-      phone: phone,
-      email: email, 
-      data: serverTimestamp()
-    });
+      await addDoc(collection(db, "proj-exten"), {
+        name: name,
+        phone: phone,
+        email: email, 
+        data: serverTimestamp()
+      });
+      router.push("/successPage")
   }  
 
   return (
